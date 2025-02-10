@@ -1,0 +1,38 @@
+.base {
+  @apply inline-flex gap-2 rounded-full justify-center items-center font-sans font-medium tracking-normal whitespace-nowrap outline-none transition duration-100 ease-linear;
+}
+.gray {
+  @apply disabled:text-alta-gray-100;
+}
+
+.pad-sm {
+  @apply py-[7px] px-3.5;
+}
+
+.pad-sm-icon {
+  @apply px-2 py-[7px];
+}
+
+.pad-md {
+  @apply py-[9px] px-4;
+}
+
+.pad-md-icon {
+  @apply px-[9px] py-[9px];
+}
+
+.title-sm {
+  @apply text-sm leading-5;
+}
+
+.title-md {
+  @apply text-base leading-6;
+}
+
+.button-sm {
+  @apply font-sans text-sm font-medium tracking-normal leading-5;
+}
+
+.button-full-width {
+  @apply w-full flex justify-between;
+}
