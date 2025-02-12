@@ -17,7 +17,7 @@ const TopNavbar: React.ComponentType<Props> = ({
 }) => {
   const router = useRouter();
 
-  return <div className='fixed w-screen max-w-3xl left-1/2 transform -translate-x-1/2 dark:bg-alta-black bg-white z-100 justify-between items-center flex p-4'>
+  return <div className='fixed border w-screen max-w-3xl left-1/2 transform -translate-x-1/2 dark:bg-alta-black bg-white justify-between items-center flex p-4'>
     {title && <Typography variant='h1'>{title}</Typography>}
     <div className='flex items-center gap-6'>
       <Button

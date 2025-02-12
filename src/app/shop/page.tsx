@@ -32,7 +32,9 @@ const ChatPage = () => {
 
   return (
     <div className="flex flex-col h-full">
-      <TopNavbar title="Chat" />
+      <div className='z-10'>
+        <TopNavbar title="Chat" />
+      </div>
 
       <div className="flex-1 overflow-y-auto py-3 mt-20 mb-[180px]">
         {messages.map((message) => (
@@ -48,6 +50,7 @@ const ChatPage = () => {
         {isLoading && <TypingIndicator description="Fetching products..." />}
         <div ref={messagesEndRef} />
       </div>
+
 
 
       <div className="fixed bottom-[90px] bg-white dark:bg-alta-black w-screen max-w-3xl left-1/2 transform -translate-x-1/2 pb-4 md:px-0 px-4 pt-0">

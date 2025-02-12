@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Typography } from '@/components/ui';
 
 export interface Product {
   name: string;
@@ -38,9 +39,9 @@ export const ProductGrid: React.ComponentType<ProductGridProps> = ({ products })
 
           </div>
           <div className="text-sm p-2">
-            <p className="text-alta-gray-900 font-semibold break-word">{product.name}</p>
-            <p className="text-alta-gray-500">{product.shop}</p>
-            <p className="font-bold text-alta-gray-900">${Number(product.price.toFixed(0)).toLocaleString()}</p>
+            <Typography className="font-semibold">{product.shop}</Typography>
+            <Typography className="text-alta-gray-500 break-word">{product.name}</Typography>
+            <Typography className="font-semibold">${Number(product.price.toFixed(0)).toLocaleString()}</Typography>
           </div>
         </Link>
       ))}

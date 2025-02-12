@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import React from "react";
+import { Typography } from "@/components/ui";
 
 export type Message = {
   id: string;
@@ -22,9 +23,9 @@ export const MessageBubble = ({ message }: { message: Message }) => {
             : ''
             }`}
         >
-          <p className={`text-[15px] leading-[22px] break-all ${!message.isUser && 'text-alta-gray-600 dark:text-alta-gray-500'}`}>
+          <Typography className={`leading-[22px] break-all ${!message.isUser && 'text-alta-gray-600 dark:text-alta-gray-500'}`} variant='body-md'>
             {message.text}
-          </p>
+          </Typography>
         </div>
         {message.isUser && <span className={`text-alta-gray-300 dark:text-alta-gray-900 text-xs mt-1 block ${message.isUser ? 'text-right mr-1' : 'ml-1'}`}>
           {dayjs(`2000-01-01 ${message.timestamp}`).format('h:mm A')}
