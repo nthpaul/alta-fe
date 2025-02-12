@@ -17,8 +17,8 @@ type Message = {
 // Dummy hook for demonstration—replace with your real hook
 const useChat = () => {
   const [messages, setMessages] = useState<Message[]>([
-    { id: '1', text: 'Hello', isUser: false, timestamp: '10:00:00' },
-    { id: '2', text: 'Hi there!', isUser: true, timestamp: '10:01:00' },
+    { id: '1', text: 'Hi there!', isUser: true, timestamp: '10:01:00' },
+    { id: '2', text: 'Hello', isUser: false, timestamp: '10:02:00' },
   ]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -77,13 +77,13 @@ const ChatPage = () => {
     console.log(message);
     return (
       <div className="mb-3 flex">
-        <div className={`max-w-[85%] ${message.isUser ? 'self-end ml-auto' : 'self-start'}`}>
+        <div className={`${message.isUser ? 'self-end ml-auto max-w-[50%]' : 'self-start'}`}>
           {!message.isUser && (
             <div className="flex items-center mb-1 ml-1 space-x-2">
             </div>
           )}
           <div
-            className={`p-3.5 rounded-2xl ${message.isUser
+            className={`p-3.5 rounded-2xl flex justify-center ${message.isUser
               ? 'bg-white dark:bg-alta-gray-900'
               : ''
               }`}
@@ -117,7 +117,7 @@ const ChatPage = () => {
       <TopNavbar title="Chat" />
 
       {/* Message list area */}
-      <div className="flex-1 overflow-y-auto py-3 mt-12">
+      <div className="flex-1 overflow-y-auto py-3 mt-20">
         {messages.map((message) => (
           <MessageBubble key={message.id} message={message} />
         ))}
