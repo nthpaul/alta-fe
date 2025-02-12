@@ -5,6 +5,15 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    domains: ["serpapi.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "serpapi.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

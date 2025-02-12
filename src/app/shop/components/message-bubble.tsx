@@ -22,7 +22,7 @@ export const MessageBubble = ({ message }: { message: Message }) => {
             : ''
             }`}
         >
-          <p className={`text-[15px] leading-[22px] ${!message.isUser && 'text-alta-gray-600 dark:text-alta-gray-500'}`}>
+          <p className={`text-[15px] leading-[22px] break-all ${!message.isUser && 'text-alta-gray-600 dark:text-alta-gray-500'}`}>
             {message.text}
           </p>
         </div>

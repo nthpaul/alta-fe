@@ -6,6 +6,20 @@ export interface Message {
   text: string;
   isUser: boolean;
   timestamp: string;
+  products?: Product[]
+  filters?: string[]
+}
+
+export type Product = {
+  name: string;
+  shop: string;
+  price: number;
+  source_url: string;
+  image_url: string;
+}
+
+export type Filters = {
+  [key: string]: string[] | Number
 }
 
 const useChat = () => {
@@ -25,12 +39,16 @@ const useChat = () => {
 
     try {
       const response = await searchProducts(text);
+
       const responseMessage: Message = {
         id: Date.now().toString(),
-        text: JSON.stringify(response, null, 2),
+        text: `Here are some products I found:`,
         isUser: false,
         timestamp: new Date().toLocaleTimeString(),
+        products: response?.products, // ✅ Products are stored here
+        filters: response?.filters
       };
+
       setMessages((prev) => [...prev, responseMessage]);
     } catch (error) {
       console.error(error);
