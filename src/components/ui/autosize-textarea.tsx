@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { cn } from '@utils';
 import { useImperativeHandle } from 'react';
+import { Send } from 'lucide-react';
 
 interface UseAutosizeTextAreaProps {
   textAreaRef: React.MutableRefObject<HTMLTextAreaElement | null>;
@@ -51,6 +52,9 @@ export type AutosizeTextAreaRef = {
 type AutosizeTextAreaProps = {
   maxHeight?: number;
   minHeight?: number;
+  handleSend?: () => void;
+  isLoading?: boolean;
+  showSendButton?: boolean;
 } & React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export const AutosizeTextarea = React.forwardRef<AutosizeTextAreaRef, AutosizeTextAreaProps>(
@@ -61,6 +65,9 @@ export const AutosizeTextarea = React.forwardRef<AutosizeTextAreaRef, AutosizeTe
       className,
       onChange,
       value,
+      handleSend,
+      isLoading,
+      showSendButton = false,
       ...props
     }: AutosizeTextAreaProps,
     ref: React.Ref<AutosizeTextAreaRef>,
@@ -87,20 +94,28 @@ export const AutosizeTextarea = React.forwardRef<AutosizeTextAreaRef, AutosizeTe
     }, [props?.defaultValue, value]);
 
     return (
-      <textarea
-        {...props}
-        className={cn(
-          'bg-white dark:bg-alta-gray-900 flex w-full rounded-md px-6 py-3 placeholder:text-md text-md disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:shadow-lg',
-          className,
-        )}
-        ref={textAreaRef}
-        value={value}
-        onChange={(e) => {
-          setTriggerAutoSize(e.target.value);
-          onChange?.(e);
-        }}
-      />
-    );
+      <>
+        <textarea
+          {...props}
+          className={cn(
+            'bg-alta-gray-100 dark:bg-alta-gray-900 flex w-full rounded-3xl px-6 py-3 placeholder:text-md text-md disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none',
+            className,
+          )}
+          ref={textAreaRef}
+          value={value}
+          onChange={(e) => {
+            setTriggerAutoSize(e.target.value);
+            onChange?.(e);
+          }}
+        />
+        {showSendButton && <button
+          className={`pr-4 ${(!value?.toString().trim() || isLoading) && 'opacity-40 cursor-not-allowed'}`}
+          disabled={!value?.toString().trim() || isLoading}
+          onClick={handleSend}
+        >
+          <Send size={22} />
+        </button>}
+      </>);
   },
 );
 AutosizeTextarea.displayName = 'AutosizeTextarea';

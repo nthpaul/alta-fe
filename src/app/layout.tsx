@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className='bg-alta-white dark:bg-alta-black'
+      <body className='bg-white dark:bg-alta-black'
       >
         <ThemeProvider>
           <div className='w-full flex justify-center'>
