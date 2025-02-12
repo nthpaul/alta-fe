@@ -18,7 +18,7 @@ interface ProductGridProps {
 export const ProductGrid: React.ComponentType<ProductGridProps> = ({ products }) => {
   console.log(products);
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-4">
       {products?.map((product, idx) => (
         <Link
           className="block transition-all rounded-3xl hover:shadow-lg"

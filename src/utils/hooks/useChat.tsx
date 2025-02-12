@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { searchProducts } from "@/utils/api";
 
 export interface Message {
@@ -16,15 +16,32 @@ export type Product = {
   price: number;
   source_url: string;
   image_url: string;
+  products?: Product[]
 }
 
 export type Filters = {
   [key: string]: string[] | Number
 }
 
+const STORAGE_KEY = "chatHistory";
+
 const useChat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  // fetch messages from local storage
+  useEffect(() => {
+    const storedMessages = localStorage.getItem(STORAGE_KEY);
+    if (storedMessages) {
+      setMessages(JSON.parse(storedMessages));
+    }
+  }, []);
+
+  // store messages in local storage
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+  }, [messages]);
+
 
   const sendMessage = async (text: string) => {
     const userMessage: Message = {

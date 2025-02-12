@@ -18,8 +18,8 @@ export const MessageBubble = ({ message }: { message: Message }) => {
           </div>
         )}
         <div
-          className={`p-3.5 rounded-2xl flex justify-center ${message.isUser
-            ? 'bg-alta-gray-100 dark:bg-alta-gray-900'
+          className={`pt-3.5 rounded-2xl flex justify-center ${message.isUser
+            ? 'p-3.5 bg-alta-gray-100 dark:bg-alta-gray-900'
             : ''
             }`}
         >

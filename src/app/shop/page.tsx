@@ -17,8 +17,6 @@ const ChatPage = () => {
     setInputText("");
   };
 
-  console.log(messages);
-
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
