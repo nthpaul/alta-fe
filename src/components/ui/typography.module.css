@@ -22,6 +22,10 @@
   @apply font-serif text-base font-normal;
 }
 
+.sans-h3 {
+  @apply font-sans md:text-2xl text-xl font-normal;
+}
+
 .body-sm {
   @apply font-sans text-sm font-normal;
 }

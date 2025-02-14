@@ -16,6 +16,7 @@ import React from 'react';
 
 export type ButtonVariant =
   | 'gray'
+  | 'primary';
 
 export interface ButtonProps {
   LeadingIcon?: (props: SVGProps<SVGSVGElement>) => ReactElement | null;

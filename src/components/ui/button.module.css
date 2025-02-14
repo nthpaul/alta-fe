@@ -1,8 +1,13 @@
 .base {
   @apply inline-flex gap-2 rounded-full justify-center items-center font-sans font-medium tracking-normal whitespace-nowrap outline-none transition duration-100 ease-linear;
 }
+
 .gray {
   @apply disabled:text-alta-gray-100;
+}
+
+.primary {
+  @apply bg-alta-gray-900 text-white;
 }
 
 .pad-sm {

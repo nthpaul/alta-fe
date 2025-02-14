@@ -4,10 +4,10 @@ import React, { useState, useRef, useEffect } from "react";
 import TopNavbar from "@/components/layout/top-navbar";
 import { AutosizeTextarea } from "@ui";
 import { MessageBubble, TypingIndicator, ProductGrid } from "@/pages/shop/components";
-import useChat from "@/utils/hooks/useChat";
+import useChat from "@/utils/hooks/use-chat";
 
 const ChatPage = () => {
-  const { messages, isLoading, sendMessage } = useChat();
+  const { messages, isLoading, sendMessage, fetchPairingsForProduct } = useChat();
   const [inputText, setInputText] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -40,7 +40,8 @@ const ChatPage = () => {
             <MessageBubble message={message} />
             {message.products && message.products.length > 0 && (
               <div>
-                <ProductGrid products={message.products} />
+                <ProductGrid fetchPairingsForProduct={fetchPairingsForProduct} products={message.products} />
+
               </div>
             )}
           </div>

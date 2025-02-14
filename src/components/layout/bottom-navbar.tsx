@@ -12,7 +12,7 @@ const BottomNavBar: React.ComponentType = (
   const router = useRouter();
   const pathname = usePathname();
 
-  const hover = "hover:bg-alta-gray-100 dark:hover:bg-alta-gray-800";
+  const hover = "hover:bg-alta-gray-200 dark:hover:bg-alta-gray-800";
 
   return (
     <div
@@ -22,7 +22,7 @@ const BottomNavBar: React.ComponentType = (
       <Button
         MainIcon={() => <HomeIcon className='w-10 h-10' />}
         className={clsx(pathname.startsWith(routes.home.href) && `p-2 bg-alta-gray-200 dark:bg-alta-gray-800 rounded-full text-alta-gray-700 dark:text-alta-white`, hover)}
-        onClick={() => router.push(routes.home.href)}
+      // onClick={() => router.push(routes.home.href)}
       />
       <Button
         MainIcon={() => <AlignCenterIcon className='w-10 h-10' />}
@@ -32,12 +32,12 @@ const BottomNavBar: React.ComponentType = (
       <Button
         MainIcon={() => <ShirtIcon className='w-10 h-10' />}
         className={clsx(pathname.startsWith(routes.outfits.href) && `p-2 bg-alta-gray-200 dark:bg-alta-gray-800 rounded-full text-alta-gray-700 dark:text-alta-white`, hover)}
-        onClick={() => router.push(routes.outfits.href)}
+      // onClick={() => router.push(routes.outfits.href)}
       />
       <Button
         MainIcon={() => <BookmarkIcon className='w-10 h-10' />}
         className={clsx(pathname.startsWith(routes.wishlist.href) && `p-2 bg-alta-gray-200 dark:bg-alta-gray-800 rounded-full text-alta-gray-700 dark:text-alta-white`, hover)}
-        onClick={() => router.push(routes.wishlist.href)}
+      // onClick={() => router.push(routes.wishlist.href)}
       />
     </div>
   );

@@ -15,7 +15,7 @@ interface Props {
 const TopNavbar: React.ComponentType<Props> = ({
   title
 }) => {
-  const router = useRouter();
+  // const router = useRouter();
 
   return <div className='fixed border md:border-none w-screen max-w-3xl left-1/2 transform -translate-x-1/2 dark:bg-alta-black bg-white justify-between items-center flex p-4'>
     {title && <Typography variant='h1'>{title}</Typography>}
@@ -29,10 +29,10 @@ const TopNavbar: React.ComponentType<Props> = ({
       <Button
         MainIcon={() => <UserIcon className='w-6 h-6' />}
         className="text-alta-gray-500 flex h-full cursor-pointer items-center justify-center rounded-full border-gray-600/50 duration-200 hover:bg-gray-600/20"
-        onClick={() => {
-          // TODO: add actual userId here
-          router.push(routes.profile.href("1"));
-        }}
+      // onClick={() => {
+      // TODO: add actual userId here
+      // router.push(routes.profile.href("1"));
+      // }}
       />
       <ThemeToggle />
     </div>

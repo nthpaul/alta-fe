@@ -10,6 +10,7 @@ export type TypographyVariant =
   | 'h4'
   | 'h5'
   | 'h6'
+  | 'sans-h3'
   | 'body-sm'
   | 'body-md'
   | 'body-lg'
