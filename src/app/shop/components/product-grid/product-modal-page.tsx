@@ -57,11 +57,11 @@ const ProductPage: React.FC<ProductPageProps> = ({ product, onClose, fetchPairin
 
         <div className="flex mt-8 gap-4 w-full">
           {isLoading
-            ? <div className='grid grid-cols-1 max-w-24 sm:max-w-32 w-full gap-4 p-4 rounded-xl sm:rounded-3xl bg-alta-gray-100 dark:bg-alta-gray-900 animate-pulse' />
-            : <div className='grid grid-cols-1 max-w-24 sm:max-w-32 gap-4 p-2 sm:p-4 rounded-xl sm:rounded-3xl bg-alta-gray-100 dark:bg-alta-gray-900'>
+            ? <div className='grid grid-cols-1 max-w-24 sm:max-w-32 w-full gap-4 p-4 rounded-3xl bg-alta-gray-100 dark:bg-alta-gray-900 animate-pulse' />
+            : <div className='grid grid-cols-1 max-w-24 sm:max-w-32 gap-4 p-2 sm:p-4 rounded-3xl bg-alta-gray-100 dark:bg-alta-gray-900'>
               {!isLoading && !!products && products.map((p, idx) => (
-                <div className="first:bg-black bg-alta-gray-100 dark:bg-alta-gray-900 rounded-xl hover:cursor-pointer relative" key={idx} onClick={() => setSelectedProduct(p)}>
-                  <Image alt={p.name} className="rounded-lg" height={200} src={p.image_url} width={150} />
+                <div className="hover:cursor-pointer relative" key={idx} onClick={() => setSelectedProduct(p)}>
+                  <Image alt={p.name} className="rounded-2xl sm:rounded-xl" height={200} src={p.image_url} width={150} />
                 </div>
               ))}
             </div>}

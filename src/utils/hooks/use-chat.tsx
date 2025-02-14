@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import { searchProducts } from "@/utils/api";
 
+export interface Filters {
+  brands: string[];
+  colors: string[];
+  materials: string[];
+  types: string[];
+}
+
 export interface Product {
   name: string;
   shop: string;
@@ -16,7 +23,7 @@ export interface Message {
   isUser: boolean;
   timestamp: string;
   products?: Product[];
-  filters?: string[];
+  filters?: Filters;
 }
 
 const STORAGE_KEY = "chatHistory";

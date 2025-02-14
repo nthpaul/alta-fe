@@ -17,7 +17,7 @@ const BottomNavBar: React.ComponentType = (
   return (
     <div
       className="fixed rounded-t-3xl bottom-0 left-1/2 transform -translate-x-1/2 bg-white dark:bg-alta-black md:bg-alta-gray-100 md:dark:bg-alta-gray-900 
-      py-4 px-20 w-full max-w-3xl flex justify-between !text-gray-400"
+      py-4 px-20 w-full max-w-3xl flex justify-between !text-gray-400 z-50"
     >
       <Button
         MainIcon={() => <HomeIcon className='w-10 h-10' />}

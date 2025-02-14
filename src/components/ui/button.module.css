@@ -1,5 +1,5 @@
 .base {
-  @apply inline-flex gap-2 rounded-full justify-center items-center font-sans font-medium tracking-normal whitespace-nowrap outline-none transition duration-100 ease-linear;
+  @apply inline-flex gap-2 rounded-full justify-center items-center font-sans font-medium tracking-normal whitespace-nowrap outline-none;
 }
 
 .gray {
@@ -7,7 +7,7 @@
 }
 
 .primary {
-  @apply bg-alta-gray-900 text-white;
+  @apply bg-alta-gray-500 text-white;
 }
 
 .pad-sm {
