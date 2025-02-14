@@ -1,4 +1,4 @@
-# Run development
+# Local
 ```
 yarn && yarn dev
 ```
