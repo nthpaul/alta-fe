@@ -1,5 +1,9 @@
+const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+
+const backendUrl = API_URL || "http://localhost:8000";
+
 export const searchProducts = async (query: string, is_fetch_pairing = false, max_num_products = 10) => {
-  const res = await fetch("http://localhost:8000/search", {
+  const res = await fetch(`${backendUrl}/search`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
