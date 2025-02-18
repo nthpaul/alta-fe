@@ -51,7 +51,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ filters, products, fet
   return (
     <div>
       <div className="sticky top-[72px] bg-white dark:bg-alta-black z-[1] flex items-end border-b pb-4 gap-2">
-        <Button LeadingIcon={() => <ListFilterIcon />} className={clsx(`bg-alta-gray-100 dark:bg-gray-900 px-4 py-2`, selectedFilters.length > 0 && 'bg-black dark:bg-white dark:text-black text-white')} variant='primary' onClick={() => setSelectedFilters([])} >{selectedFilters.length}</Button>
+        <Button LeadingIcon={() => <ListFilterIcon />} className={clsx(`bg-alta-gray-100 dark:bg-alta-gray-900 px-4 py-2`, selectedFilters.length > 0 && 'bg-black dark:bg-white dark:text-black text-white')} variant='primary' onClick={() => setSelectedFilters([])} >{selectedFilters.length}</Button>
 
         <div className="overflow-x-auto whitespace-nowrap px-4 pt-2 flex gap-2">
           <div className="absolute left-20 top-0 h-full w-6 bg-gradient-to-r from-white dark:from-alta-black to-transparent pointer-events-none" />

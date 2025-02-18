@@ -7,7 +7,7 @@
 }
 
 .primary {
-  @apply bg-alta-gray-500 text-white;
+  @apply disabled:text-alta-gray-100;
 }
 
 .pad-sm {
