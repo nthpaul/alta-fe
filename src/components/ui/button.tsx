@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   CSSProperties,
@@ -8,15 +8,13 @@ import {
   ReactElement,
   SVGProps,
   useMemo,
-} from 'react';
-import clsx from 'clsx';
-import Link from 'next/link';
-import styles from '@/components/ui/button.module.css';
-import React from 'react';
+} from "react";
+import clsx from "clsx";
+import Link from "next/link";
+import styles from "@/components/ui/button.module.css";
+import React from "react";
 
-export type ButtonVariant =
-  | 'gray'
-  | 'primary';
+export type ButtonVariant = "gray" | "primary";
 
 export interface ButtonProps {
   LeadingIcon?: (props: SVGProps<SVGSVGElement>) => ReactElement | null;
@@ -27,10 +25,10 @@ export interface ButtonProps {
   disabled?: boolean;
   href?: string;
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-  size?: 'sm' | 'md';
+  size?: "sm" | "md";
   style?: CSSProperties;
   target?: HTMLAttributeAnchorTarget;
-  type?: 'button';
+  type?: "button";
   variant?: ButtonVariant;
   loading?: boolean;
 }
@@ -43,69 +41,62 @@ export const Button: ComponentType<ButtonProps> = ({
   className,
   disabled,
   onClick,
-  size = 'md',
+  size = "md",
   style,
-  type = 'button',
-  variant = 'gray',
+  type = "button",
+  variant = "gray",
   href,
   target,
-  loading
+  loading,
 }) => {
   const classNames = useMemo(() => {
     const value: string[] = [styles.base];
 
     switch (size) {
-      case 'sm':
-        value.push(styles['title-sm']);
+      case "sm":
+        value.push(styles["title-sm"]);
         break;
-      case 'md':
-        value.push(styles['title-md']);
+      case "md":
+        value.push(styles["title-md"]);
         break;
     }
 
-    if (
-      variant === 'gray'
-    ) {
+    if (variant === "gray") {
       if (MainIcon) {
         switch (size) {
-          case 'sm':
-            value.push(styles['pad-sm-icon']);
+          case "sm":
+            value.push(styles["pad-sm-icon"]);
             break;
-          case 'md':
-            value.push(styles['pad-md-icon']);
+          case "md":
+            value.push(styles["pad-md-icon"]);
             break;
         }
       } else {
         switch (size) {
-          case 'sm':
-            value.push(styles['pad-sm']);
+          case "sm":
+            value.push(styles["pad-sm"]);
             break;
-          case 'md':
-            value.push(styles['pad-md']);
+          case "md":
+            value.push(styles["pad-md"]);
             break;
         }
       }
     }
 
-    if (variant === 'gray') {
-      value.push(styles['gray']);
+    if (variant === "gray") {
+      value.push(styles["gray"]);
     }
 
-    return value.join(' ');
+    return value.join(" ");
   }, [MainIcon, size, variant]);
 
   const content = (
     <>
       {MainIcon ? (
-        <MainIcon
-          className={clsx(
-            size === 'sm' && 'h-5 w-5',
-            size === 'md' && 'h-6 w-6'
-          )}
-        />
+        <MainIcon className={clsx(size === "sm" && "h-5 w-5", size === "md" && "h-6 w-6")} />
       ) : (
         <>
-          {LeadingIcon && <LeadingIcon className={clsx('h-5 w-5', loading && 'animate-spin')} />}
+          {LeadingIcon && <LeadingIcon className={clsx("h-5 w-5", loading && "animate-spin")} />}
           {loading ? children : children}
           {TrailingIcon && <TrailingIcon className="h-5 w-5" />}
         </>
@@ -115,11 +106,7 @@ export const Button: ComponentType<ButtonProps> = ({
 
   if (href && (disabled || loading)) {
     return (
-      <button
-        className={clsx(classNames, className)}
-        disabled={disabled || loading}
-        style={style}
-      >
+      <button className={clsx(classNames, className)} disabled={disabled || loading} style={style}>
         {content}
       </button>
     );
@@ -129,12 +116,8 @@ export const Button: ComponentType<ButtonProps> = ({
     return (
       <Link
         aria-disabled={disabled || loading}
-        className={clsx(
-          classNames,
-          className,
-          loading && 'cursor-not-allowed opacity-70'
-        )}
-        href={loading ? '#' : href}
+        className={clsx(classNames, className, loading && "cursor-not-allowed opacity-70")}
+        href={loading ? "#" : href}
         style={style}
         target={target}
         type={type}

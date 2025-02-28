@@ -1,18 +1,17 @@
 export const routes = {
   shop: {
-    href: '/shop'
+    href: "/shop",
   },
   home: {
-    href: '/home'
+    href: "/home",
   },
   outfits: {
-    href: '/outfits'
+    href: "/outfits",
   },
   wishlist: {
-    href: '/wishlist'
+    href: "/wishlist",
   },
   profile: {
-    href: (userId: string) => `/profile/${userId}`
-  }
+    href: (userId: string) => `/profile/${userId}`,
+  },
 };
-

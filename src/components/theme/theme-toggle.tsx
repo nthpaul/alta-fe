@@ -1,8 +1,8 @@
 'use client';
-import { MoonStar, Sun, } from "lucide-react";
-import { useEffect, useState } from "react";
+import { MoonStar, Sun } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import React from 'react';
-import { useTheme } from "next-themes";
+import { useTheme } from 'next-themes';
 import { Button } from '@ui';
 
 export function ThemeToggle() {
@@ -14,7 +14,7 @@ export function ThemeToggle() {
   }, []);
 
   useEffect(() => {
-    const localTheme = localStorage.getItem("theme");
+    const localTheme = localStorage.getItem('theme');
     if (!!localTheme || !systemTheme) return;
     setTheme(systemTheme as string);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -23,12 +23,7 @@ export function ThemeToggle() {
   if (!mounted) return null;
 
   const Icon = () => {
-    return (theme === "light" ? (
-      <Sun className="h-6 w-6" />
-    ) : (
-      <MoonStar className="h-6 w-6" />
-    ));
-
+    return theme === 'light' ? <Sun className="h-6 w-6" /> : <MoonStar className="h-6 w-6" />;
   };
 
   return (

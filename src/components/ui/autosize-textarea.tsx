@@ -108,14 +108,17 @@ export const AutosizeTextarea = React.forwardRef<AutosizeTextAreaRef, AutosizeTe
             onChange?.(e);
           }}
         />
-        {showSendButton && <button
-          className={`pr-4 ${(!value?.toString().trim() || isLoading) && 'opacity-40 cursor-not-allowed'}`}
-          disabled={!value?.toString().trim() || isLoading}
-          onClick={handleSend}
-        >
-          <Send size={22} />
-        </button>}
-      </>);
+        {showSendButton && (
+          <button
+            className={`pr-4 ${(!value?.toString().trim() || isLoading) && 'opacity-40 cursor-not-allowed'}`}
+            disabled={!value?.toString().trim() || isLoading}
+            onClick={handleSend}
+          >
+            <Send size={22} />
+          </button>
+        )}
+      </>
+    );
   },
 );
 AutosizeTextarea.displayName = 'AutosizeTextarea';

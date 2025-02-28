@@ -1,10 +1,10 @@
-import React, { useState, useMemo } from 'react';
-import Image from 'next/image';
-import { Typography, Button } from '@/components/ui';
-import ProductPage from './product-modal-page';
-import { Filters } from '@/utils/hooks/use-chat';
-import { ListFilterIcon } from 'lucide-react';
-import clsx from 'clsx';
+import React, { useState, useMemo } from "react";
+import Image from "next/image";
+import { Typography, Button } from "@/components/ui";
+import ProductPage from "./product-modal-page";
+import { Filters } from "@/utils/hooks/use-chat";
+import { ListFilterIcon } from "lucide-react";
+import clsx from "clsx";
 
 export interface Product {
   name: string;
@@ -20,7 +20,11 @@ interface ProductGridProps {
   filters: Filters;
 }
 
-export const ProductGrid: React.FC<ProductGridProps> = ({ filters, products, fetchPairingsForProduct }) => {
+export const ProductGrid: React.FC<ProductGridProps> = ({
+  filters,
+  products,
+  fetchPairingsForProduct,
+}) => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
@@ -35,7 +39,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ filters, products, fet
 
   const toggleFilter = (value: string) => {
     setSelectedFilters((prev) =>
-      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value],
     );
   };
 
@@ -51,14 +55,27 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ filters, products, fet
   return (
     <div>
       <div className="sticky top-[72px] bg-white dark:bg-alta-black z-[1] flex items-end border-b pb-4 gap-2">
-        <Button LeadingIcon={() => <ListFilterIcon />} className={clsx(`bg-alta-gray-100 dark:bg-alta-gray-900 px-4 py-2`, selectedFilters.length > 0 && 'bg-black dark:bg-white dark:text-black text-white')} variant='primary' onClick={() => setSelectedFilters([])} >{selectedFilters.length}</Button>
+        <Button
+          LeadingIcon={() => <ListFilterIcon />}
+          className={clsx(
+            `bg-alta-gray-100 dark:bg-alta-gray-900 px-4 py-2`,
+            selectedFilters.length > 0 && "bg-black dark:bg-white dark:text-black text-white",
+          )}
+          variant="primary"
+          onClick={() => setSelectedFilters([])}
+        >
+          {selectedFilters.length}
+        </Button>
 
         <div className="overflow-x-auto whitespace-nowrap px-4 pt-2 flex gap-2">
           <div className="absolute left-20 top-0 h-full w-6 bg-gradient-to-r from-white dark:from-alta-black to-transparent pointer-events-none" />
           {allFilters.map((value) => (
             <Button
-              className={`px-4 py-2 rounded-full flex-shrink-0 ${selectedFilters.includes(value) ? 'bg-black dark:bg-white dark:text-black text-white' : 'bg-alta-gray-100 dark:bg-alta-gray-900'
-                }`}
+              className={`px-4 py-2 rounded-full flex-shrink-0 ${
+                selectedFilters.includes(value)
+                  ? "bg-black dark:bg-white dark:text-black text-white"
+                  : "bg-alta-gray-100 dark:bg-alta-gray-900"
+              }`}
               key={value}
               onClick={() => toggleFilter(value)}
             >
@@ -68,7 +85,6 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ filters, products, fet
           <div className="absolute right-0 top-0 h-full w-6 bg-gradient-to-l from-white dark:from-alta-black to-transparent pointer-events-none" />
         </div>
       </div>
-
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-4">
         {filteredProducts.map((product, idx) => (
